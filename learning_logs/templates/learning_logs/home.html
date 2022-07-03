@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% extends "learning_logs/base.html"%}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Raleway:500|Quicksand|Poiret+One">
+        <title>Learning log</title>
+    </head>
+    
+    <style>
+        :root{
+           --heading-font: "Raleway";
+           --text-font: "Quicksand"; 
+           --background-color: #e0dccf;
+           --default-color:#2F99EB;
+           --secondary-color:#FF7330;
+        }
+        html,body{
+             background:var(--background-color);
+             font-family: var(--text-font),"Raleway";
+             font-size:1em;
+        }
+        h1,h2,h3,h4,h5,h6{
+             font-family: var(--heading-font);
+        }
+        strong{
+             font-weight:1000;
+        }
+        a{
+            color:var(--default-color);
+            transition-duration:0.5s;
+        }
+        a:hover{
+            color:rgb(214, 197, 102);
+        }
+        a:visited{
+            color:#FFB700;
+        }
+        ::selection{
+            background:var(--default-color);
+            color: white;
+        }
+        ::-webkit-scrollbar{
+            width:10px;
+        }
+        ::-webkit-scrollbar-track{
+            background:var(--background-color);
+        }
+        ::-webkit-scrollbar-thumb{
+            background:var(--default-color);
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background:#2b6ee3;
+        }
+        .flex-container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: stretch;            
+        }
+        .grid-container{
+            display:grid;
+        }
+        .page{
+            padding:5%;
+            color:rgb(191, 191, 191);
+            background:rgb(51, 51, 51);
+        }
+        .center{
+            text-align:center;
+        }
+        .highlight-1{
+            color:#2499EB;
+        }
+        .highlight-2{
+            color:var(--secondary-color);
+        }
+        .mid-page-image {
+           float: right;
+           margin: 2.5%;
+           width: 300px;
+        }
+        button{
+            outline:none;
+        }
+        a{
+            text-decoration:none;
+        }
+    </style><!--General-->
+    <body>
+        {% block content %}
+            <p>Learning Log</p>
+            <p>Learning Log helps you keep track of stuff you are learning.</p>
+        {% endblock content %}
+    </body>
+</html>
