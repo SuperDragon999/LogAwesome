@@ -6,7 +6,12 @@ from . import views
 
 app_name = 'learning_logs'
 urlpatterns = [
-    path('', views.index, name = 'home'),
+    #Home
+    path('', views.home, name = 'home'),
+    #Topics
     path('topics/',views.topics, name = 'topics'),
-    path()
+    #Main topic page
+    path('topics/<int:topic_id>/', views.topic, name='topic'),
+    #Topic-adding page
+    path('new_topic/', views.new_topic, name = 'new_topic')
 ]
