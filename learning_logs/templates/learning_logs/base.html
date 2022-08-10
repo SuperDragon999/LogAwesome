@@ -7,8 +7,86 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Raleway:500|Quicksand|Poiret+One">
     </head>
     <style>
-        
-    </style>
+        :root{
+           --heading-font: "Raleway";
+           --text-font: "Quicksand"; 
+           --background-color: #fff9e6;
+           --default-color:#2F99EB;
+           --secondary-color:#FF7330;
+        }
+        html,body{
+             background:var(--background-color);
+             font-family: var(--text-font),"Raleway";
+             font-size:1em;
+        }
+        h1,h2,h3,h4,h5,h6{
+             font-family: var(--heading-font);
+        }
+        strong{
+             font-weight:1000;
+        }
+        a{
+            color:var(--default-color);
+            transition-duration:0.5s;
+        }
+        a:hover{
+            color:rgb(214, 197, 102);
+        }
+        a:visited{
+            color: var(--secondary-color);
+        }
+        ::selection{
+            background:var(--default-color);
+            color: white;
+        }
+        ::-webkit-scrollbar{
+            width:10px;
+        }
+        ::-webkit-scrollbar-track{
+            background:var(--background-color);
+        }
+        ::-webkit-scrollbar-thumb{
+            background:var(--default-color);
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background:#2b6ee3;
+        }
+        .flex-container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: stretch;            
+        }
+        .grid-container{
+            display:grid;
+        }
+        .page{
+            padding:5%;
+            color:rgb(191, 191, 191);
+            background:rgb(51, 51, 51);
+        }
+        .center{
+            text-align:center;
+        }
+        .highlight-1{
+            color:#2499EB;
+        }
+        .highlight-2{
+            color:var(--secondary-color);
+        }
+        .mid-page-image {
+           float: right;
+           margin: 2.5%;
+           width: 300px;
+        }
+        button{
+            outline:none;
+            font-family: var(--text-font)
+        }
+        a{
+            text-decoration:none;
+        }
+    </style><!--General-->
     <p>
         <a href="{%url 'learning_logs:home'%}">Home <span class = 'material-icons icon'>home</span></a>
         <a href="{%url 'learning_logs:topics'%}">Topics <span class="material-icons icon">topic</span></a>
