@@ -28,12 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+if os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
 
 # Application definition
 
 INSTALLED_APPS = [
     #My apps
     'learning_logs',
+    'users',
     #Default django apps
     'django.contrib.admin',
     'django.contrib.auth',
