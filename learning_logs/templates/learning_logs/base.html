@@ -113,19 +113,36 @@
             transform: scaleX(1);
          }
          #login{
-            margin-left:1150px;
             text-align:right;
+         }
+         #register{
+            margin-left:1000px;
+            text-align:right;
+         }
+         #logout{ 
+            position:absolute;
+            top:10px;       
+            left:1400px;
+         }
+         #logged-out{
+            font-size:1.2em;
+         }
+         #welcome-message{
+            position: absolute;
+            top:0px;
+            left:1200px;
          }
     </style><!--General-->
     <div>
         <div class = 'nav-content'>
-            <a href="{%url 'learning_logs:home'%}">Home <i class="fa-solid fa-house"></i></a>
-            <a href="{%url 'learning_logs:topics'%}">Topics <i class="fa-solid fa-chalkboard"></i></a>
-            {% if user.is_authenicated %}
-            <p>Hello, {{user.username}}!</p>
-            <a href = "{% url 'users:logout' %}">Log out</a>
-            {% else %}
-            <a href = "{% url 'users:login' %}" id = "login">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+            <a href="{% url 'learning_logs:home' %}">Home <i class="fa-solid fa-house"></i></a>
+            <a href="{% url 'learning_logs:topics' %}">Topics <i class="fa-solid fa-chalkboard"></i></a>
+            {% if user.is_authenticated %}
+                <p id = 'welcome-message'>Welcome, {{ user.username }}!</p>
+                <a id = 'logout' href="{% url 'users:logout' %}">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+            {% else %}            
+            <a href="{% url 'users:register' %}" id = 'register'>Register <i class="fa-solid fa-user-plus"></i></a>
+            <a href="{% url 'users:login' %}" id = 'login'>Login <i class="fa-solid fa-right-to-bracket"></i></a>
             {% endif %}
         </div>
     </div><!--Navbar-->
