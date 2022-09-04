@@ -1,5 +1,8 @@
-{% extends 'login.html' %}
+{% extends 'registration/login.html'%}
 
 {% block content %}
-<p>Sorry! To access this page, you need to login or register.</p>
+<div>
+Sorry! To access this page, you need to <a href = "{% url 'users:login' %}">login</a> or 
+<a href = "{% url 'users:register' %}">register</a>.
+</div>
 {% endblock content %}
