@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Learning Log</title>
+        <title>{% block title %}Learning Log{% endblock %}</title>
         <script src="https://kit.fontawesome.com/7836dfbe8a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Raleway:500|Quicksand|Poiret+One">
     </head>
@@ -121,8 +121,9 @@
             top:10px;       
             left:1400px;
          }
-         #logged-out{
+         .logged-out{
             font-size:1.2em;
+            padding: 10px;
          }
          #welcome-message{
             position: absolute;
