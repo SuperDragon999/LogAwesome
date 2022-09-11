@@ -34,7 +34,7 @@ if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 
 #Login url
-LOGIN_URL = 'users:redirected_login'
+LOGIN_URL = 'users:login'
 
 # Application definition
 INSTALLED_APPS = [

@@ -1,7 +1,10 @@
 {% extends 'learning_logs/base.html' %}
-{% load bootstrap4 %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Sign in{% endblock %}
+
+{% block page_header %}
+<h2>Sign in to your account</h2>
+{% endblock page_header %}
 
 {% block content %}
 
@@ -9,11 +12,12 @@
     <p>Whoops! Looks like you typed your username/password wrongly. <i class="fa-solid fa-face-frown"></i></p>
 {% endif %}
 
-<form method="post" action = "{% url 'users:login' %}">
+<p id = 'msg'>Let's get you signed in and back to your Learning Logs.</p>
+<form method="post" action = "{% url 'users:login' %}" spellcheck="False">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name = "submit">Login</button>
+    {{form.as_p}}
+    <button name = "submit" class = 'buttons'>Sign in <i class="fa-solid fa-door-open"></i></button>
 <input type = "hidden" name = "next" value="{% url 'learning_logs:home' %}">
 </form>
-
+<p>Don't have an account? <a href = "{% url 'users:register' %}" class = 'register-link'>Sign up and get started</a>!</p>
 {% endblock content %}

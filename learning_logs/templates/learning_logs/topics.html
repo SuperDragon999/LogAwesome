@@ -2,13 +2,14 @@
 
 {% block title %}Topics{% endblock %}
 
+{% block page_header %}
+<h2>Your topics <i class="fa-solid fa-chalkboard"></i></h2>
+{% endblock page_header %}
+
 {% block content %}
-<p>Topics</p>
 <ul>
     {%for topic in topics%}
-        <li>
-            <a href = "{% url 'learning_logs:topic' topic.id %}">{{topic}}</a>
-        </li>
+        <a href = "{% url 'learning_logs:topic' topic.id %}" class = 'topic-itm'>{{topic}}</a>
     {% empty %}
         <li>No topics have been added yet. Learn about a new topic and add it here!</li>
     {% endfor %}

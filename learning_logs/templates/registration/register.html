@@ -2,13 +2,17 @@
 
 {% block title %}Registration{% endblock %}
 
+{% block page_header %}
+    <h2>
+        <div>Get started with Learning Log <i class = 'fa-solid fa-graduation-cap'></i>&trade;</div>
+    </h2>
+{% endblock page_header %}
+
 {% block content %}
-
-    <form method = 'post' action = "{% url 'users:register' %}">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button name = "submit">Register</button>
-        <input type ="hidden" name = 'next' value = "{% url 'learning_logs:home' %}">
-    </form>
-
+<form method = 'post' action = "{% url 'users:register' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button name = "submit" class = 'buttons' style = 'margin-left:0px;'>Register</button>
+    <input type ="hidden" name = 'next' value = "{% url 'learning_logs:home' %}">
+</form>
 {% endblock content %}

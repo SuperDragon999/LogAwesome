@@ -2,9 +2,24 @@
 {% extends "learning_logs/base.html"%}
 <html>
     <body>
-        {% block content %}
-            <h1>Learning Log <i class = 'fa-solid fa-graduation-cap'></i></h1>
-            <p>Learning Log helps you keep track of stuff you are learning.</p>
+        <div id = 'home'>
+            {% block page_header %}
+                <h1>Track your learning with...</h1>
+            {% endblock page_header %}
+            {% block content %}
+                <h2>Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>!</h2>
+                <p class = 'quote'>Learn continually &#8210; There is always "one more thing" to learn! 
+                <br>
+                &#8112;Steve Jobs, creator of Apple
+                </p>
+                <p>It is always a good habit to keep a learning log to record what you are learning.
+                But do you sometimes lose track of where your log is? If you do, try with Learning Log&trade;
+                to keep an online version of your learning log which you can't lose.
+                </p>
+                <p>When you learn about something, create a learning log topic and add entries about what you learnt.<br>
+                Interested now? Register and try Learning Log now! <i></i></p>
+                <a href = "{% url 'users:register' %}" id = 'register-btn' class = 'buttons'>Register &raquo;</a>
+        </div>
         {% endblock content %}
     </body>
 </html>
