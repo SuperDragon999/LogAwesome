@@ -1,18 +1,25 @@
 {% extends "learning_logs/base.html" %}
 
-{% block title %}Topics{% endblock %}
+{% block title %}Your topics | Log Awesome{% endblock %}
 
 {% block page_header %}
 <h2>Your topics <i class="fa-solid fa-chalkboard"></i></h2>
+
 {% endblock page_header %}
 
 {% block content %}
+<a class = 'buttons link-btn' id = 'add-a-topic' href = "{% url 'learning_logs:new_topic' %}">
+Add a new topic! <i class="fa-solid fa-plus"></i>
+</a>
 <ul>
     {%for topic in topics%}
+    <li>
         <a href = "{% url 'learning_logs:topic' topic.id %}" class = 'topic-itm'>{{topic}}</a>
+    </li>
     {% empty %}
-        <li>No topics have been added yet. Learn about a new topic and add it here!</li>
+        No topics have been added yet. Learn about a new topic and add it here!
     {% endfor %}
 </ul>
-<a href = "{% url 'learning_logs:new_topic' %}">Add a new topic!</a>
+<br>
+
 {% endblock content %}

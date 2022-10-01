@@ -1,6 +1,6 @@
 {% extends "learning_logs/base.html" %}
 
-{% block title %}Topic: {{topic}}{% endblock %}
+{% block title %}Topic: {{topic}} | Log Awesome{% endblock %}
 
 {% block content %}
 <p>Topic: {{topic}}</p>
@@ -8,7 +8,7 @@
 <p><a href = "{% url 'learning_logs:new_entry' topic.id%}">Add a new entry</a></p>
 <ul>
     {% for entry in entries %}
-        <li>
+        <li class = 'entry-card'>
             <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
             <p>{{ entry.text|linebreaks }}</p>
             <p><a href = "{% url 'learning_logs:edit_entry' entry.id%}">Edit entry <i class="fa-solid fa-pen-to-square"></i></a></p>

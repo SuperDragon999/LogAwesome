@@ -11,7 +11,6 @@
 {% if form.errors %}
     <p>Whoops! Looks like you typed your username/password wrongly. <i class="fa-solid fa-face-frown"></i></p>
 {% endif %}
-
 <p id = 'msg'>Let's get you signed in and back to your Learning Logs.</p>
 <form method="post" action = "{% url 'users:login' %}" spellcheck="False">
     {% csrf_token %}

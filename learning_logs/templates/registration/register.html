@@ -1,10 +1,10 @@
 {% extends 'learning_logs/base.html' %}
 
-{% block title %}Registration{% endblock %}
+{% block title %}Register | Log Awesome{% endblock %}
 
 {% block page_header %}
     <h2>
-        <div>Get started with Learning Log <i class = 'fa-solid fa-graduation-cap'></i>&trade;</div>
+        <div>Get started with Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>&trade;</div>
     </h2>
 {% endblock page_header %}
 
@@ -12,7 +12,7 @@
 <form method = 'post' action = "{% url 'users:register' %}">
     {% csrf_token %}
     {{form.as_p}}
-    <button name = "submit" class = 'buttons' style = 'margin-left:0px;'>Register</button>
+    <button name = "submit" class = 'buttons'>Register <i class="fa-solid fa-user-plus"></i></button>
     <input type ="hidden" name = 'next' value = "{% url 'learning_logs:home' %}">
 </form>
 {% endblock content %}

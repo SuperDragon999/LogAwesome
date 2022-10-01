@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Log Awesome is a learning log website which allows you to add topics and entries for note-taking.">
         <title>{% block title %}Log Awesome{% endblock %}</title>
         <script src="https://kit.fontawesome.com/7836dfbe8a.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Raleway:500|Quicksand|Poiret+One|Fuzzy+Bubbles">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Raleway:500|Quicksand|Fuzzy+Bubbles|Lexend+Deca:500">
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     </head>
@@ -16,6 +17,7 @@
            --background-color: #fff9e6;
            --default-color:#2F99EB;
            --secondary-color:#FF7330;
+           --tertiary-color:#ead340;
         }
         html,body{
              background:var(--background-color);
@@ -39,10 +41,11 @@
            display:flex;
            flex-direction:row;
            align-content:stretch;
+           flex-wrap:nowrap;
        }
         input{
             font-family:'Fuzzy Bubbles', cursive;
-            width:80%;
+            width:30%;
             height:25px;
             border-radius:5px;
             margin-left:50px;
@@ -73,12 +76,6 @@
         }
         ::-webkit-scrollbar-thumb:hover{
             background:#2b6ee3;
-        }
-        .flex-container{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-content: stretch;            
         }
         .grid-container{
             display:grid;
@@ -111,8 +108,32 @@
         }
     </style><!--General-->
     <style>        
+        #menu-toggle{
+            display: none;
+        } 
+        .menu-button-container {
+            display: none;
+            height: 100%;
+            width: 30px;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-button,
+        .menu-button::before,
+        .menu-button::after {
+            display: block;
+            background-color: #fff;
+            position: absolute;
+            height: 4px;
+            width: 30px;
+            transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            border-radius: 2px;
+        }
         .nav-content a {
-            color:var(--default-color);
+            color:#c2e3e2;
             font-size:1.3em;
             margin-bottom:5px;
             margin-right:25px;
@@ -128,7 +149,7 @@
             height: 2px;
             margin-top: -1px;
             display: block;
-            background: #c06fe5f7;
+            background: #c2e3e2;
             transition:inherit;
             transform: scaleX(0);
          }
@@ -136,48 +157,102 @@
         .nav-content a:hover:after {
             transform: scaleX(1);
          }
-        .nav-bar{     
-            padding:2px;    
+        .nav-bar{   
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            color:#f5f5f7;  
+            padding:1em;    
             position: sticky;
-            width:100.5%;
-            height:120px;
-            margin-left:-5px;
+            height:50px;
+            margin-left:-8px;
             margin-top:-10px;
-            text-align: center;
             z-index: 10;
             box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
-            display: block;
-            background: #F19F40;
+            display:block;
+            background: #424245;
         }
+        .nav-flex{
+            margin-left:20px;
+            font-size:0.9em;
+        }
+        .links-part{
+            margin-top:20px;
+            margin-left:20px;
+            display:flex;
+            align-items:stretch;
+        }
+        #welcome-msg{
+            margin-top:0px;
+            margin-left:790px;
+            font-size:1.3em;
+            color:#f5f5f7;
+        }
+        #brand-name{
+            font-size:1.5em;
+            color:#f5f5f7;
+            margin-top:20px;
+            font-weight:700;
+            font-family:'Raleway';
+        }
+        #brand-name:after{
+            content:none;
+            width: 0%;
+            height: 0px;
+        }
+        .menu-button::before {
+            content: '';
+            margin-top: -8px;
+        }
+        .menu-button::after {
+            content: '';
+            margin-top: 8px;
+        }
+
+        #menu-toggle:checked + .menu-button-container .menu-button::before {
+            margin-top: 0px;
+            transform: rotate(405deg);
+        }
+
+        #menu-toggle:checked + .menu-button-container .menu-button {
+            background: rgba(255, 255, 255, 0);
+        }
+
+        #menu-toggle:checked + .menu-button-container .menu-button::after {
+            margin-top: 0px;
+            transform: rotate(-405deg);
+}
+
     </style><!--Navbar-->
     <style>
         #login{
         text-align:right;
         }
-        #logout{ 
-        position:absolute;
-        top:10px;       
-        left:1400px;
-        }
         .logged-out{
         font-size:1.2em;
         padding: 10px;
         }
-        #welcome-message{
-        position: absolute;
-        top:0px;
-        left:1200px;
-        }
     </style><!--Base.html Styling-->
     <style>
-        #register-btn{
+        .buttons.link-btn{
             padding-left:100px;
-            padding-right: 100px;
-            margin-left:0px;
+            padding-right:100px;
+            margin-left:2px;
             color:black;
         }
         .quote{
-            font-style:italic;
+            font-family:'Lexend Deca';
+            font-size:1.2em;
+        }
+        .heading-1{
+            color:rgb(33, 91, 125);
+        }
+        .header{
+            color:rgb(39, 136, 221);
+            font-size:1.8em;
+            font-weight:1000;
         }
     </style><!--Home-->
     <style>
@@ -186,8 +261,7 @@
             border: none;
             background-color: #2498eb92;
             border-radius:5px;
-            margin-left:300px;
-            width:60%;
+            width:40%;
             cursor:pointer;
             font-size:1.02em;
             font-family:var(--heading-font);
@@ -213,7 +287,26 @@
         }
     </style><!--Accounts-->
     <style>
-        @media only screen and (max-width:991px){
+        .add-btn{
+            background-color:var(--tertiary-color);
+            margin-left:10px;
+        }
+        .add-btn:hover{
+            background-color:#db8f33;
+        }
+        #add-a-topic{
+            border-radius:30px;
+            position:absolute;
+            top:120px;
+            left:1160px;
+            width:10%;
+        }
+        .user-form{
+            margin-left:0px;
+        }
+    </style><!--User-->
+    <style>
+        @media only screen and (max-width:1024px){
             /*Large tablets style*/
             .buttons{
                 width:72%;
@@ -221,6 +314,12 @@
             }
             input{
                 width:30%;
+            }          
+            #welcome-msg{            
+                margin-top:0px;
+                margin-left:70px;
+                font-size:1.3em;
+                color:#f5f5f7;
             }
         }
         @media only screen and (max-width:767px){
@@ -228,30 +327,69 @@
             .buttons{
                 width:80%;
             } 
+            .menu-button-container {
+                display: flex;
+            }
+            #menu-toggle ~ .nav-content a{
+                height: 0;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            #menu-toggle:checked ~ .nav-content a {
+                border: 1px solid #333;
+                height: 2.5em;
+                padding: 0.5em;
+                transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            .nav-content {
+                position: absolute;
+                top: 0;
+                margin-top: 50px;
+                left: 0;
+                flex-direction: column;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
         }
         @media only screen and (max-width:480px){
             /*Phone styles*/
+            html{
+                overflow:hidden;
+                max-width:100%;
+            }
             .buttons{
                 width:80%;
                 margin-left:50px;
             }
+            .nav-bar{
+                width:105%;
+            }
         }
     </style><!--Media-Queries-->
-    <body>            
-        <div class = 'nav-bar'>
-                <h2>Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>&trade;</h2>
-                <div class = 'nav-content'>
+    <body>              
+        <div class = 'nav-bar'>       
+            <input type="checkbox" id="menu-toggle">
+            <label class='menu-button-container' for="menu-toggle">        
+                <div class = 'menu-button'></div>
+            </label>
+            <a id = 'brand-name' href = "{% url 'learning_logs:home' %}">Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>&trade;</a>                      
+            <div class = 'nav-content flex-container nav-flex'>            
+                <div class = 'links-part'>
                     <a href="{% url 'learning_logs:home' %}">Home <i class="fa-solid fa-house"></i></a>
                     <a href="{% url 'learning_logs:topics' %}">Topics <i class="fa-solid fa-chalkboard"></i></a>
                     {% if user.is_authenticated %}
-                        <p id = 'welcome-message'>Welcome, {{ user.username }}!</p>
-                        <a id = 'logout' href="{% url 'users:logout' %}">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+                    <a href="{% url 'users:logout' %}">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+                    <a id = 'welcome-msg'><i class = 'fa-solid fa-user'></i> {{ user.username }}</a>
                     {% else %}            
                     <a href="{% url 'users:register' %}" id = 'register'>Register <i class="fa-solid fa-user-plus"></i></a>
                     <a href="{% url 'users:login' %}" id = 'login'>Login <i class="fa-solid fa-right-to-bracket"></i></a>
                     {% endif %}
-                </div>
-            </div><!--Navbar-->
+                </div>  
+            </div>
+        </div><!--Navbar-->
         <main>
             <div>
                 <br>

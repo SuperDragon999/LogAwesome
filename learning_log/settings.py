@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-zi$+5n6wqwh-9p)!)qrpz%j!7inqiv-fgsf&$8s0zhz26@+pdc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#TODO: This thing is fine. BUT DANGEROUS. Find another safer option
+ALLOWED_HOSTS = ['*']
 
 if os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'learning_log.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

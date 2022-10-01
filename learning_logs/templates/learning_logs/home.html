@@ -4,21 +4,22 @@
     <body>
         <div id = 'home'>
             {% block page_header %}
-                <h1>Track your learning with...</h1>
+                <div class = 'header'>Track your learning with...Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>!</div>
             {% endblock page_header %}
             {% block content %}
-                <h2>Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>!</h2>
-                <p class = 'quote'>Learn continually &#8210; There is always "one more thing" to learn! 
+                <p class = 'quote'>"Learn continually &#8210; There is always "one more thing" to learn!"
                 <br>
-                &#8112;Steve Jobs, creator of Apple
+                &#8210;Steve Jobs, creator of Apple
                 </p>
-                <p>It is always a good habit to keep a learning log to record what you are learning.
-                But do you sometimes lose track of where your log is? If you do, try with Learning Log&trade;
-                to keep an online version of your learning log which you can't lose.
+                <h3 class = 'heading-1'>Make your learning more fruitful.</h3>
+                <p>When you are learning about anything, create a topic on Log Awesome! And then,
+                    create some entries about what you learnt. You can come back to check your logs
+                    anytime! Try creating a Log Awesome topic yourself and add entries about what you learnt.
                 </p>
-                <p>When you learn about something, create a learning log topic and add entries about what you learnt.<br>
-                Interested now? Register and try Learning Log now! <i></i></p>
-                <a href = "{% url 'users:register' %}" id = 'register-btn' class = 'buttons'>Register &raquo;</a>
+                <br>
+                Interested now? Register and try Log Awesome!
+                <br><br>
+                <a href = "{% url 'users:register' %}" class = 'buttons link-btn'>Register &raquo;</a>
         </div>
         {% endblock content %}
     </body>
