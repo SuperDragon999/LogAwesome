@@ -9,7 +9,7 @@
 
 {% block content %}
 <a class = 'buttons link-btn' id = 'add-a-topic' href = "{% url 'learning_logs:new_topic' %}">
-Add a new topic! <i class="fa-solid fa-plus"></i>
+Add a topic! <i class="fa-solid fa-plus"></i>
 </a>
 <ul>
     {%for topic in topics%}

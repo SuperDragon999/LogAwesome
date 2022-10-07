@@ -190,9 +190,11 @@
             align-items: center;
             justify-content: space-between;
             position: sticky;
+            font-size:0.8em;
             color:#f5f5f7;  
             padding:1em;    
             height:50px;
+            width:99.38%;
             margin-left:-8px;
             margin-top:-10px;
             z-index: 10;
@@ -322,6 +324,7 @@
             top:120px;
             left:1160px;
             width:10%;
+            text-align:center;
         }
         .user-form{
             margin-left:0px;
@@ -345,15 +348,31 @@
                 font-size:1.3em;
                 color:#f5f5f7;
             }
+
+            #add-a-topic{
+                border-radius:30px;
+                position:absolute;
+                top:120px;
+                left:440px;
+                width:15%; 
+            }
         }
 
-        @media only screen and (max-width:767px){
+        @media only screen and (max-width:780px){
             /*Normal tablets style*/
             .buttons{
                 width:80%;
-            } 
-            
-
+            }     
+            .nav-bar{
+                width:99%;
+            }   
+            #add-a-topic{
+                border-radius:30px;
+                position:absolute;
+                top:120px;
+                left:440px;
+                width:15%; 
+            }
             .menu-button-container {
                 display: flex;
             }
@@ -362,25 +381,30 @@
                 margin: 0;
                 padding: 0;
                 border: 0;
+                display:none;
                 transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
             }
             #menu-toggle:checked ~ .nav-content a {
                 border: 1px solid #333;
                 height: 2.5em;
+                display:block;
+                width:99%;
                 padding: 0.5em;
-                transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                transition: height 100ms cubic-bezier(0.23, 1, 0.32, 1);
             }
             .nav-content {
                 position: absolute;
-                top: 0;
+                top:30px;
                 margin-top: 50px;
-                left: 0;
+                margin-left:-10px;
                 flex-direction: column;
                 width: 100%;
                 justify-content: center;
                 align-items: center;
             }
-
+            .nav-content > a{
+                background-color:#424245;
+            }
         }
 
         @media only screen and (max-width:480px){
@@ -395,7 +419,7 @@
                 margin-left:50px;
             }
             .nav-bar{
-                width:105%;
+                width:98%;
             }
         }
     </style><!--Media-Queries-->
