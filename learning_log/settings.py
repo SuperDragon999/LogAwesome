@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-zi$+5n6wqwh-9p)!)qrpz%j!7inqiv-fgsf&$8s0zhz26@+pdc
 DEBUG = False
 
 #TODO: This thing is fine. BUT DANGEROUS. Find another safer option
-ALLOWED_HOSTS = ['localhost', '.vercel.app']
+ALLOWED_HOSTS = ['localhost', '.vercel.app', '.now.sh']
 
 if os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
@@ -67,9 +67,12 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+""" STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/assets')
-]
+] """
+
+STATICFILES_DIRS = [BASE_DIR/'static',]
+STATIC_ROOT = BASE_DIR/'staticfiles'
 
 ROOT_URLCONF = 'learning_log.urls'
 
