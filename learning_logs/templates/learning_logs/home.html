@@ -17,7 +17,13 @@
                     anytime! Try creating a Log Awesome topic yourself and add entries about what you learnt.
                 </p>
                 {% if user.is_authenticated %}
-                <br> Greetings, {{user.username}}!
+                <br> 
+                <h3>Greetings, {{user.username}}!</h3>
+                <p>We're glad to see you again 😊 Would you like to check out your logs, or add a new topic?</p>
+                <br>
+                <a href = "{% url 'learning_logs:topics' %}" class = "buttons link-btn">Check out my logs <i class="fa-solid fa-person-chalkboard"></i></a>
+                <br><br><br>
+                <a href = "{% url 'learning_logs:new_topic' %}" class = "buttons link-btn">Add a new topic <i class = "fa-solid fa-pen-fancy"></i></a>
                 {% else %}
                 <br>
                 Interested now? Register and try Log Awesome!
