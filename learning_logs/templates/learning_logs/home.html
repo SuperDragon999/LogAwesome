@@ -16,10 +16,14 @@
                     create some entries about what you learnt. You can come back to check your logs
                     anytime! Try creating a Log Awesome topic yourself and add entries about what you learnt.
                 </p>
+                {% if user.is_authenticated %}
+                <br> Greetings, {{user.username}}!
+                {% else %}
                 <br>
                 Interested now? Register and try Log Awesome!
                 <br><br>
                 <a href = "{% url 'users:register' %}" class = 'buttons link-btn'>Register &raquo;</a>
+                {% endif %}
         </div>
         {% endblock content %}
     </body>

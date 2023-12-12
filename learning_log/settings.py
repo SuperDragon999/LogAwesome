@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-zi$+5n6wqwh-9p)!)qrpz%j!7inqiv-fgsf&$8s0zhz26@+pdc
 DEBUG = False
 
 #TODO: This thing is fine. BUT DANGEROUS. Find another safer option
-ALLOWED_HOSTS = ['localhost', '.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['localhost', '.vercel.app', '.now.sh', '127.0.0.1']
 
 if os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
