@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -98,13 +99,17 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {    # 
+DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-          'NAME': BASE_DIR / 'db.sqlite3',
-     }
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:4C2ed42eDAfB31516cD5b4DBD2*35G3a@monorail.proxy.rlwy.net:27466/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '4C2ed42eDAfB31516cD5b4DBD2*35G3a',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': 27466,
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
