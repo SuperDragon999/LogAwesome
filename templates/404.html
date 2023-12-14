@@ -1,0 +1,32 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+<style>
+    .large-404{
+        font-size:5em;
+    }
+    .main-msg{
+        text-align: center;
+        font-size:1.3em;
+    }
+    .heading-404{
+        font-size:3em;
+        padding:12px;
+        border: none;
+        background-color: #bfbfbf92;
+        border-radius:50px;
+        width:auto;
+        border-bottom:0;
+    }
+</style>
+<h1 class = 'highlight-2 center heading-404'>Page not found</h1>
+<br>
+<div class = "large-404 highlight-1 center">
+    <i class="fa-solid fa-4"></i>
+    <i class = "fa-solid fa-explosion"></i>
+    <i class="fa-solid fa-4"></i>
+</div>
+<p class = "center main-msg">Looks like we can't find this 404 error-destroyed page! 
+<br>
+Try logging in first, or checking the address.</p>
+{% endblock content %}
