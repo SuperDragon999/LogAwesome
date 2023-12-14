@@ -99,16 +99,18 @@ WSGI_APPLICATION = 'learning_log.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'URL': 'postgresql://postgres:4C2ed42eDAfB31516cD5b4DBD2*35G3a@monorail.proxy.rlwy.net:27466/railway',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '4C2ed42eDAfB31516cD5b4DBD2*35G3a',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': 27466,
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'neondb',
+    'USER': 'SuperDragon999',
+    'PASSWORD': '5raFjfq7Mopd',
+    'HOST': 'ep-morning-surf-79885623.ap-southeast-1.aws.neon.tech',
+    'PORT': '5432',
+    'OPTIONS': {'sslmode': 'require'},
+  }
 }
 
 # Password validation

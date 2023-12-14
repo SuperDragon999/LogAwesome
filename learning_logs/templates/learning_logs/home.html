@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 {% extends "learning_logs/base.html"%}
+{% block content %}
 <html>
+    <style>
+        .buttons.link-btn{
+            padding-left:100px;
+            padding-right:100px;
+            margin-left:2px;
+            color:black;
+        }
+        .quote{
+            font-family:'Lexend Deca';
+            font-size:1.2em;
+        }
+        .heading-1{
+            color:rgb(33, 91, 125);
+        }
+        .header{
+            color:rgb(39, 136, 221);
+            font-size:1.8em;
+            font-weight:1000;
+        }
+        #equal-width{
+            width:42%;
+        }
+    </style><!--Home-->
     <body>
         <div id = 'home'>
-            {% block page_header %}
-                <div class = 'header'>Track your learning with...Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>!</div>
-            {% endblock page_header %}
-            {% block content %}
+                <div class = 'header'>Track your learning with...Log Awesome <i class = 'fa-solid fa-graduation-cap'></i>!</div>            
                 <p class = 'quote'>"Learn continually &#8210; There is always "one more thing" to learn!"
                 <br>
                 &#8210;Steve Jobs, creator of Apple
@@ -23,7 +44,7 @@
                 <br>
                 <a href = "{% url 'learning_logs:topics' %}" class = "buttons link-btn">Check out my logs <i class="fa-solid fa-person-chalkboard"></i></a>
                 <br><br><br>
-                <a href = "{% url 'learning_logs:new_topic' %}" class = "buttons link-btn">Add a new topic <i class = "fa-solid fa-pen-fancy"></i></a>
+                <a href = "{% url 'learning_logs:new_topic' %}" class = "buttons link-btn" id = "equal-width">Add a new topic <i class = "fa-solid fa-pen-fancy"></i></a>
                 {% else %}
                 <br>
                 Interested now? Register and try Log Awesome!
@@ -31,6 +52,7 @@
                 <a href = "{% url 'users:register' %}" class = 'buttons link-btn'>Register &raquo;</a>
                 {% endif %}
         </div>
-        {% endblock content %}
+        
     </body>
 </html>
+{% endblock content %}

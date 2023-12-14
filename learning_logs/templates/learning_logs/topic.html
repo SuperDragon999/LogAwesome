@@ -3,18 +3,63 @@
 {% block title %}Topic: {{topic}} | Log Awesome{% endblock %}
 
 {% block content %}
-<p>Topic: {{topic}}</p>
-<p>Entries:</p>
-<p><a href = "{% url 'learning_logs:new_entry' topic.id%}">Add a new entry</a></p>
-<ul>
-    {% for entry in entries %}
-        <li class = 'entry-card'>
-            <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-            <p>{{ entry.text|linebreaks }}</p>
-            <p><a href = "{% url 'learning_logs:edit_entry' entry.id%}">Edit entry <i class="fa-solid fa-pen-to-square"></i></a></p>
-        </li>
-    {% empty %}
-        <li>No entries have been added yet. Add one now!</li>
-    {% endfor %}
-</ul>
+<style>
+    #second{
+        margin-left:30px;
+    }
+    #name{
+        font-size:1.2em;
+    }
+    .modify-btn{
+        color:rgb(23, 23, 23);
+        margin-left:5px;
+        padding:12px;
+        border: none;
+        background-color: #2498eb92;
+        border-radius:5px;
+        width:16%;
+        cursor:pointer;
+        font-size:1.02em;
+        font-family:var(--heading-font);
+        box-shadow:0px 5px black;
+        border:solid 2px black;
+        transition: transform 0.3s ease;        
+    }
+    .modify-btn:hover{
+        color:rgb(23, 23, 23);
+        transform: scale(1.05);
+    }
+    .entry-card{
+        width:fit-content;
+        border: solid 2px black;
+        border-radius:10px;
+        box-shadow:0px 5px black;
+        padding:10px;
+        margin-bottom:3px;
+    }
+</style><!--Topic-->
+<h2>{{topic}}</h2>
+<p id = "name">Entries:</p>
+<a href = "{% url 'learning_logs:new_entry' topic.id%}">
+    <button class = "modify-btn">Add a new entry</button>
+</a>
+<br><br><br>
+{% for entry in entries %}
+    <div class = 'entry-card'>
+        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ entry.text|linebreaks }}</p>
+        <div>
+            <a href = "{% url 'learning_logs:edit_entry' entry.id%}" id = 'first'>
+                Edit entry <i class="fa-solid fa-pen-to-square"></i></a>
+            <a href = "{% url 'learning_logs:delete_entry' entry.id%}" id = 'second'>
+                Delete entry <i class="fa-solid fa-trash-can"></i>
+            </a>
+        </div>
+    </div>
+{% empty %}
+<p>No entries have been added yet. Add one now to kickstart your learning about {{topic}}!</p>
+{% endfor %}
+<script>
+    
+</script>
 {% endblock content %}

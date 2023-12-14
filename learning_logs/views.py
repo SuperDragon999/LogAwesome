@@ -76,3 +76,22 @@ def edit_entry(request, entry_id):
             return redirect('learning_logs:topic', topic_id = topic.id)
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+@login_required
+def delete_entry(request, entry_id):
+    '''Delete existing entry'''
+    entry = get_object_or_404(Entry, id=entry_id)
+    topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
+    entry.delete()
+    return redirect('learning_logs:topic', topic_id = topic.id)        
+
+@login_required
+def delete_topic(request, topic_id):
+    '''Delete existing topic. WARNING: CASCADING DELETE'''
+    topic = get_object_or_404(Topic, id=topic_id)
+    if topic.owner != request.user:
+        raise Http404
+    topic.delete()
+    return redirect('learning_logs:topics', topic_id = topic.id)    
